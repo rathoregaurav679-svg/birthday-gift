@@ -1,1 +1,271 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For My Sweet Mahi ❤️</title>
 
+<style>
+body{
+margin:0;
+padding:0;
+overflow:hidden;
+font-family:'Poppins',sans-serif;
+background:linear-gradient(135deg,#ff1e56,#ff6f91,#ffb3c6,#c9184a);
+background-size:400% 400%;
+animation:bgMove 10s infinite alternate;
+color:white;
+text-align:center;
+}
+
+@keyframes bgMove{
+0%{background-position:0% 50%;}
+100%{background-position:100% 50%;}
+}
+
+canvas{
+position:fixed;
+top:0;
+left:0;
+z-index:-2;
+}
+
+/* Floating Hearts */
+.heartFloat{
+position:absolute;
+font-size:18px;
+color:#ffd6e0;
+animation:floatUp 6s linear infinite;
+}
+
+@keyframes floatUp{
+0%{transform:translateY(100vh) scale(0.5);}
+100%{transform:translateY(-10vh) scale(1.2);}
+}
+
+/* Rose petals */
+.petal{
+position:absolute;
+font-size:18px;
+animation:fall 8s linear infinite;
+}
+
+@keyframes fall{
+0%{transform:translateY(-10vh) rotate(0deg);}
+100%{transform:translateY(110vh) rotate(360deg);}
+}
+
+.container{
+position:absolute;
+top:35%;
+width:100%;
+transform:translateY(-50%);
+padding:20px;
+}
+
+/* Romantic Buttons */
+button{
+padding:12px 25px;
+border:none;
+border-radius:30px;
+background:white;
+color:#c9184a;
+font-size:16px;
+cursor:pointer;
+margin:10px;
+box-shadow:0 0 15px rgba(255,255,255,0.6);
+}
+
+button:hover{
+background:#ff4d6d;
+color:white;
+}
+
+/* Shayari Cards */
+.shayari-container{
+display:flex;
+justify-content:center;
+gap:20px;
+flex-wrap:wrap;
+margin-top:20px;
+}
+
+.shayari{
+background:rgba(255,255,255,0.2);
+padding:20px;
+border-radius:20px;
+width:250px;
+backdrop-filter:blur(10px);
+box-shadow:0 0 20px rgba(255,255,255,0.4);
+}
+
+/* Teddy Romantic */
+.teddy{
+font-size:90px;
+cursor:pointer;
+animation:hug 1.5s infinite;
+}
+
+@keyframes hug{
+0%,100%{transform:scale(1);}
+50%{transform:scale(1.15);}
+}
+
+/* Heart Burst */
+.bigHeart{
+font-size:100px;
+cursor:pointer;
+animation:pulse 1.2s infinite;
+}
+
+@keyframes pulse{
+0%{transform:scale(1);}
+50%{transform:scale(1.3);}
+100%{transform:scale(1);}
+}
+
+/* Chocolate Box */
+.giftBox{
+font-size:80px;
+cursor:pointer;
+animation:shake 1s infinite;
+}
+
+@keyframes shake{
+0%,100%{transform:rotate(0deg);}
+25%{transform:rotate(5deg);}
+75%{transform:rotate(-5deg);}
+}
+
+.popup{
+position:fixed;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+background:white;
+color:#c9184a;
+padding:25px;
+border-radius:20px;
+display:none;
+z-index:10;
+width:85%;
+max-width:320px;
+box-shadow:0 0 25px rgba(255,255,255,0.6);
+}
+</style>
+</head>
+
+<body>
+
+<audio autoplay loop>
+<source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mp3">
+</audio>
+
+<div class="container" id="main"></div>
+
+<div class="popup" id="popup">
+<h3>Just For You Mahi 💌</h3>
+<p>Mahi… tum sirf khoobsurat nahi ho ❤️<br>
+Tumhara dil sabse zyada pyara hai 💕<br>
+Tumhari simplicity hi tumhari sabse romantic tareef hai ✨<br><br>
+Stay the sweetest part of my life 🌹</p>
+<button onclick="closePopup()">Close 💖</button>
+</div>
+
+<script>
+
+/* Floating hearts */
+setInterval(()=>{
+let h=document.createElement("div");
+h.className="heartFloat";
+h.innerHTML="💖";
+h.style.left=Math.random()*100+"vw";
+document.body.appendChild(h);
+setTimeout(()=>h.remove(),6000);
+},500);
+
+/* Rose petals */
+setInterval(()=>{
+let p=document.createElement("div");
+p.className="petal";
+p.innerHTML="🌹";
+p.style.left=Math.random()*100+"vw";
+document.body.appendChild(p);
+setTimeout(()=>p.remove(),8000);
+},800);
+
+/* Start */
+function showStart(){
+document.getElementById("main").innerHTML=
+"<h2>Are You Ready For This Romantic Surprise? 💖</h2>"+
+"<button onclick='startGift()'>YES ❤️</button>"+
+"<button id='noBtn'>NO 😜</button>";
+
+let noBtn=document.getElementById("noBtn");
+noBtn.onmouseover=function(){
+noBtn.style.position="absolute";
+noBtn.style.left=Math.random()*80+'%';
+noBtn.style.top=Math.random()*80+'%';
+};
+}
+
+/* Main Flow */
+function startGift(){
+document.getElementById("main").innerHTML=
+"<h2>Toh shuruwat karte hain aapke behaviour se 💕</h2>"+
+"<p>Mahi, tumhara nature bohot caring aur pure hai ✨</p>"+
+"<button onclick='showShayari()'>Next 💌</button>";
+}
+
+function showShayari(){
+document.getElementById("main").innerHTML=
+"<h2>✨ 3 Shayari For Mahi ✨</h2>"+
+"<div class='shayari-container'>"+
+"<div class='shayari'>Teri hasi sabse pyari lagti hai,<br>Dil ko seedha chhoo jaati hai ❤️</div>"+
+"<div class='shayari'>Rang bhi sharma jaaye,<br>Jab tu saamne aaye 🌸</div>"+
+"<div class='shayari'>Tu sirf khoobsurat nahi,<br>Tu dil se bhi lajawab hai 💕</div>"+
+"</div>"+
+"<button onclick='showTeddy()'>Next 🧸</button>";
+}
+
+function showTeddy(){
+document.getElementById("main").innerHTML=
+"<h2>Yeh teddy tumhe ek virtual hug dena chahta hai 🤗</h2>"+
+"<div class='teddy' onclick='showHeart()'>🧸💖</div>"+
+"<p>Click the Teddy 🧸</p>";
+}
+
+function showHeart(){
+document.getElementById("main").innerHTML=
+"<h2>Yeh dil sirf tumhare liye dhadakta hai ❤️</h2>"+
+"<div class='bigHeart' onclick='showGift()'>❤️</div>";
+}
+
+function showGift(){
+document.getElementById("main").innerHTML=
+"<h2>Ek chota sa chocolate gift tumhare liye 🍫</h2>"+
+"<div class='giftBox' onclick='openChocolate()'>🎁</div>"+
+"<p>Open the Gift 🎁</p>";
+}
+
+function openChocolate(){
+document.getElementById("main").innerHTML=
+"<h1>🍫💖🍫</h1>"+
+"<h2>For You Mahi ❤️</h2>"+
+"<button onclick='openPopup()'>Read Secret Message 💌</button>";
+}
+
+function openPopup(){
+document.getElementById("popup").style.display="block";
+}
+
+function closePopup(){
+document.getElementById("popup").style.display="none";
+}
+
+showStart();
+
+</script>
+
+</body>
+</html>
