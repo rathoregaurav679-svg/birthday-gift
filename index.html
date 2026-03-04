@@ -11,7 +11,7 @@ margin:0;
 padding:0;
 overflow:hidden;
 font-family:'Poppins',sans-serif;
-background:linear-gradient(135deg,#ff1e56,#ff6f91,#ffb3c6,#c9184a);
+background:linear-gradient(135deg,#1a001f,#330033,#4d0039,#660033);
 background-size:400% 400%;
 animation:bgMove 10s infinite alternate;
 color:white;
@@ -30,11 +30,16 @@ left:0;
 z-index:-2;
 }
 
+/* Glow Text */
+h1, h2, h3, p {
+text-shadow: 0 0 12px rgba(255,255,255,0.9);
+}
+
 /* Floating Hearts */
 .heartFloat{
 position:absolute;
 font-size:18px;
-color:#ffd6e0;
+color:#ff99cc;
 animation:floatUp 6s linear infinite;
 }
 
@@ -74,11 +79,13 @@ font-size:16px;
 cursor:pointer;
 margin:10px;
 box-shadow:0 0 15px rgba(255,255,255,0.6);
+transition:0.3s;
 }
 
 button:hover{
 background:#ff4d6d;
 color:white;
+transform:scale(1.05);
 }
 
 /* Shayari Cards */
@@ -91,15 +98,15 @@ margin-top:20px;
 }
 
 .shayari{
-background:rgba(255,255,255,0.2);
+background:rgba(0,0,0,0.6);
 padding:20px;
 border-radius:20px;
 width:250px;
 backdrop-filter:blur(10px);
-box-shadow:0 0 20px rgba(255,255,255,0.4);
+box-shadow:0 0 20px rgba(255,105,180,0.6);
 }
 
-/* Teddy Romantic */
+/* Teddy */
 .teddy{
 font-size:90px;
 cursor:pointer;
@@ -111,7 +118,7 @@ animation:hug 1.5s infinite;
 50%{transform:scale(1.15);}
 }
 
-/* Heart Burst */
+/* Big Heart */
 .bigHeart{
 font-size:100px;
 cursor:pointer;
@@ -124,7 +131,7 @@ animation:pulse 1.2s infinite;
 100%{transform:scale(1);}
 }
 
-/* Chocolate Box */
+/* Gift */
 .giftBox{
 font-size:80px;
 cursor:pointer;
@@ -137,20 +144,21 @@ animation:shake 1s infinite;
 75%{transform:rotate(-5deg);}
 }
 
+/* Popup */
 .popup{
 position:fixed;
 top:50%;
 left:50%;
 transform:translate(-50%,-50%);
-background:white;
-color:#c9184a;
+background:#1a001f;
+color:#ffb3d9;
 padding:25px;
 border-radius:20px;
 display:none;
 z-index:10;
 width:85%;
 max-width:320px;
-box-shadow:0 0 25px rgba(255,255,255,0.6);
+box-shadow:0 0 25px rgba(255,105,180,0.8);
 }
 </style>
 </head>
@@ -165,10 +173,12 @@ box-shadow:0 0 25px rgba(255,255,255,0.6);
 
 <div class="popup" id="popup">
 <h3>Just For You Mahi 💌</h3>
-<p>Mahi… tum sirf khoobsurat nahi ho ❤️<br>
+<p>
+Mahi… tum sirf khoobsurat nahi ho ❤️<br>
 Tumhara dil sabse zyada pyara hai 💕<br>
 Tumhari simplicity hi tumhari sabse romantic tareef hai ✨<br><br>
-Stay the sweetest part of my life 🌹</p>
+Stay the sweetest part of my life 🌹
+</p>
 <button onclick="closePopup()">Close 💖</button>
 </div>
 
