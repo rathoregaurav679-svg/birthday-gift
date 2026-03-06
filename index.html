@@ -1,7 +1,8 @@
+```html
 <!DOCTYPE html>
 <html>
 <head>
-
+<meta charset="UTF-8">
 <title>Surbhi Madam Ji Birthday</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
@@ -39,20 +40,11 @@ display:none;
 padding:40px;
 }
 
-.cake{
-font-size:120px;
-cursor:pointer;
-}
+/* cake teddy gift */
 
-.teddy{
-font-size:100px;
-cursor:pointer;
-}
-
-.gift{
-font-size:100px;
-cursor:pointer;
-}
+.cake{font-size:120px;cursor:pointer;}
+.teddy{font-size:100px;cursor:pointer;}
+.gift{font-size:100px;cursor:pointer;}
 
 .gallery{
 display:flex;
@@ -74,6 +66,8 @@ transition:0.4s;
 transform:scale(1.1);
 }
 
+/* hearts */
+
 .heart{
 position:fixed;
 bottom:-10px;
@@ -86,18 +80,7 @@ animation:fly 5s linear infinite;
 100%{transform:translateY(-100vh);opacity:0;}
 }
 
-.confetti{
-position:fixed;
-width:10px;
-height:10px;
-top:-10px;
-animation:fall 4s linear infinite;
-}
-
-@keyframes fall{
-0%{transform:translateY(0);}
-100%{transform:translateY(100vh);}
-}
+/* roses */
 
 .rose{
 position:fixed;
@@ -111,6 +94,8 @@ animation:rosefall 6s linear infinite;
 100%{transform:translateY(100vh);}
 }
 
+/* chocolate game */
+
 .choco{
 position:absolute;
 font-size:40px;
@@ -123,6 +108,8 @@ animation:fallChoco 4s linear;
 100%{top:300px}
 }
 
+/* letter */
+
 #letter{
 display:none;
 background:white;
@@ -131,6 +118,37 @@ padding:25px;
 border-radius:20px;
 max-width:400px;
 margin:auto;
+}
+
+/* shayari */
+
+.shayari-section{
+padding:60px 20px;
+}
+
+.shayari-card{
+background:white;
+color:black;
+padding:20px;
+border-radius:20px;
+margin:15px;
+}
+
+/* final countdown */
+
+#finalSection{
+display:none;
+padding:60px;
+}
+
+#seconds{
+font-size:120px;
+font-weight:bold;
+}
+
+#birthdayMessage{
+font-size:50px;
+font-family:'Great Vibes',cursive;
 }
 
 </style>
@@ -146,13 +164,14 @@ margin:auto;
 <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mp3">
 </audio>
 
+<!-- cake -->
+
 <div id="cakeSection" class="section">
-
 <h2>Cut Your Birthday Cake 🎂</h2>
-
 <div class="cake" onclick="cutCake()">🎂</div>
-
 </div>
+
+<!-- gallery -->
 
 <div id="gallerySection" class="section">
 
@@ -170,6 +189,8 @@ margin:auto;
 <button onclick="openGame()">Next Surprise</button>
 
 </div>
+
+<!-- game -->
 
 <div id="gameSection" class="section">
 
@@ -193,6 +214,8 @@ border-radius:20px;
 
 </div>
 
+<!-- teddy -->
+
 <div id="teddySection" class="section">
 
 <h2>This Teddy is For You 🧸</h2>
@@ -201,6 +224,8 @@ border-radius:20px;
 
 </div>
 
+<!-- gift -->
+
 <div id="giftSection" class="section">
 
 <h2>Click Your Surprise Gift 🎁</h2>
@@ -208,6 +233,8 @@ border-radius:20px;
 <div class="gift" onclick="openLetter()">🎁</div>
 
 </div>
+
+<!-- letter -->
 
 <div id="letterSection" class="section">
 
@@ -223,113 +250,34 @@ border-radius:20px;
 
 </div>
 
-<!-- Special Message Section -->
-<section class="special-message">
+<!-- shayari -->
 
-<h2>💖 Special Message 💖</h2>
+<div id="shayariSection" class="section">
 
-<p>
-Tumhari smile meri life ka sabse beautiful part hai...
-</p>
+<h2>Birthday Shayari For You 💖</h2>
 
-</section>
+<div class="shayari-card">Har pal tu khush rahe...</div>
+<div class="shayari-card">Chand bhi sharma jaye...</div>
+<div class="shayari-card">Zindagi ki har khushi...</div>
+<div class="shayari-card">Khuda kare teri zindagi...</div>
+<div class="shayari-card">Aaj ka din bahut special hai...</div>
 
-<!-- Birthday Shayari Section -->
-<section class="shayari-section">
-
-<h2>💖 Birthday Shayari For You 💖</h2>
-
-<div class="shayari-container">
-
-<div class="shayari-card">
-<p>
-Har pal tu khush rahe, har din tera khaas ho, <br>
-Teri muskaan hi meri duniya ka ehsaas ho. <br>
-Janamdin par bas yahi dua hai meri, <br>
-Teri zindagi hamesha khushiyon se bhari ho. 🎂
-</p>
-</div>
-
-<div class="shayari-card">
-<p>
-Chand bhi sharma jaye teri muskaan dekh kar, <br>
-Phool bhi khil jaye tera naam dekh kar. <br>
-Rab se bas itni si dua hai meri, <br>
-Tera har birthday aaye hazaar khushiyan lekar. 💖
-</p>
-</div>
-
-<div class="shayari-card">
-<p>
-Zindagi ki har khushi tere naam ho, <br>
-Har subah aur har shaam tere naam ho. <br>
-Janamdin ki bohot saari badhai, <br>
-Meri har dua bas tere naam ho. 🎉
-</p>
-</div>
-
-<div class="shayari-card">
-<p>
-Khuda kare teri zindagi itni haseen ho, <br>
-Har din khushi se rangeen ho. <br>
-Janamdin par mile tujhe sab kuch, <br>
-Jo bhi tere dil ke kareeb ho. 💕
-</p>
-</div>
-
-<div class="shayari-card">
-<p>
-Aaj ka din bahut special hai, <br>
-Kyuki aaj meri favourite person ka birthday hai. <br>
-Rab kare teri life hamesha smile se bhari rahe. <br>
-Happy Birthday 🎂❤️
-</p>
-</div>
+<button onclick="openFinal()">Final Surprise</button>
 
 </div>
 
-</section>
+<!-- final countdown -->
 
-<style>
+<div id="finalSection">
 
-.shayari-section{
-padding:60px 20px;
-background:linear-gradient(135deg,#ff9a9e,#fad0c4);
-text-align:center;
-}
+<h2>Special Moment Starts In</h2>
 
-.shayari-section h2{
-font-size:32px;
-margin-bottom:40px;
-color:#fff;
-}
+<div id="seconds">10</div>
 
-.shayari-container{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
-max-width:1000px;
-margin:auto;
-}
+<h1 id="birthdayMessage"></h1>
 
-.shayari{
-background:rgba(255,255,255,0.85);
-padding:25px;
-margin:20px 0;
-border-radius:20px;
-font-size:20px;
-line-height:1.7;
-color:#000;
-font-weight:500;
-text-align:center;
-}
+</div>
 
-.shayari-card:hover{
-transform:translateY(-8px);
-}
-
-</style>  
-  
 <script>
 
 function start(){
@@ -349,7 +297,6 @@ document.getElementById("cakeSection").style.display="none"
 document.getElementById("gallerySection").style.display="block"
 
 createHearts()
-createConfetti()
 
 }
 
@@ -384,7 +331,26 @@ document.getElementById("letterSection").style.display="block"
 function showLetter(){
 
 document.getElementById("letter").style.display="block"
-typeMessage()
+
+let text="Surbhi Madam Ji aap bahut special ho..."
+
+let i=0
+
+function typing(){
+
+if(i<text.length){
+
+document.getElementById("typing").innerHTML+=text.charAt(i)
+
+i++
+
+setTimeout(typing,40)
+
+}
+
+}
+
+typing()
 
 }
 
@@ -395,34 +361,16 @@ document.getElementById("shayariSection").style.display="block"
 
 }
 
-function finalScreen(){
+function openFinal(){
 
 document.getElementById("shayariSection").style.display="none"
 document.getElementById("finalSection").style.display="block"
 
-}
-
-function typeMessage(){
-
-let text="Surbhi Madam Ji, sach bolu to aap bahut special ho. Aapki smile itni cute hai ki kisi ka bhi din achha ho jaye. Aap jitni beautiful ho utni hi kind hearted bhi ho. Happy Birthday ❤️"
-
-let i=0
-
-function typing(){
-
-if(i<text.length){
-
-document.getElementById("typing").innerHTML+=text.charAt(i)
-i++
-setTimeout(typing,40)
+startCountdown()
 
 }
 
-}
-
-typing()
-
-}
+/* hearts */
 
 function createHearts(){
 
@@ -441,23 +389,7 @@ document.body.appendChild(heart)
 
 }
 
-function createConfetti(){
-
-for(let i=0;i<60;i++){
-
-let conf=document.createElement("div")
-
-conf.className="confetti"
-
-conf.style.left=Math.random()*100+"%"
-
-conf.style.background="hsl("+Math.random()*360+"deg,100%,50%)"
-
-document.body.appendChild(conf)
-
-}
-
-}
+/* roses */
 
 function createRoses(){
 
@@ -475,6 +407,8 @@ document.body.appendChild(rose)
 }
 
 }
+
+/* chocolate game */
 
 let score=0
 let gameRunning=false
@@ -518,7 +452,51 @@ setTimeout(spawnChocolate,800)
 
 }
 
+/* countdown */
+
+function startCountdown(){
+
+let seconds=10
+
+let timer=setInterval(function(){
+
+seconds--
+
+document.getElementById("seconds").innerHTML=seconds
+
+if(seconds<=0){
+
+clearInterval(timer)
+
+document.getElementById("seconds").style.display="none"
+
+typeWriter()
+
+}
+
+},1000)
+
+}
+
+let text="💖 Happy Birthday Surbhi Madam Ji 💖"
+let i=0
+
+function typeWriter(){
+
+if(i<text.length){
+
+document.getElementById("birthdayMessage").innerHTML+=text.charAt(i)
+
+i++
+
+setTimeout(typeWriter,80)
+
+}
+
+}
+
 </script>
 
 </body>
 </html>
+```
