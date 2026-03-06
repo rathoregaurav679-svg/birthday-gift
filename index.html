@@ -1,279 +1,250 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>For My Sweet Mahi ❤️</title>
+
+<title>Happy Birthday Surbhi Madam Ji</title>
 
 <style>
+
 body{
 margin:0;
 padding:0;
-overflow:hidden;
-font-family:'Poppins',sans-serif;
-background:linear-gradient(135deg,#1a001f,#330033,#4d0039,#660033);
-background-size:400% 400%;
-animation:bgMove 10s infinite alternate;
+background:#000;
+font-family:Arial;
 color:white;
 text-align:center;
+overflow-x:hidden;
 }
 
-@keyframes bgMove{
-0%{background-position:0% 50%;}
-100%{background-position:100% 50%;}
+.container{
+margin-top:100px;
+}
+
+h1{
+font-size:50px;
+color:#ff4d6d;
+}
+
+p{
+font-size:22px;
+max-width:700px;
+margin:auto;
+}
+
+button{
+margin-top:30px;
+padding:15px 35px;
+font-size:20px;
+border:none;
+border-radius:30px;
+background:#ff4d6d;
+color:white;
+cursor:pointer;
+transition:0.3s;
+}
+
+button:hover{
+transform:scale(1.1);
+}
+
+.hidden{
+display:none;
+}
+
+.gallery{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+margin-top:40px;
+gap:20px;
+}
+
+.gallery img{
+width:200px;
+height:200px;
+object-fit:cover;
+border-radius:15px;
+transition:0.4s;
+}
+
+.gallery img:hover{
+transform:scale(1.1);
+}
+
+#cake{
+font-size:80px;
+animation: cake 1s infinite alternate;
+}
+
+@keyframes cake{
+from{transform:scale(1)}
+to{transform:scale(1.1)}
+}
+
+#typing{
+border-right:3px solid white;
+display:inline-block;
+white-space:nowrap;
+overflow:hidden;
 }
 
 canvas{
 position:fixed;
 top:0;
 left:0;
-z-index:-2;
+pointer-events:none;
 }
 
-/* Glow Text */
-h1, h2, h3, p {
-text-shadow: 0 0 12px rgba(255,255,255,0.9);
-}
-
-/* Floating Hearts */
-.heartFloat{
-position:absolute;
-font-size:18px;
-color:#ff99cc;
-animation:floatUp 6s linear infinite;
-}
-
-@keyframes floatUp{
-0%{transform:translateY(100vh) scale(0.5);}
-100%{transform:translateY(-10vh) scale(1.2);}
-}
-
-/* Rose petals */
-.petal{
-position:absolute;
-font-size:18px;
-animation:fall 8s linear infinite;
-}
-
-@keyframes fall{
-0%{transform:translateY(-10vh) rotate(0deg);}
-100%{transform:translateY(110vh) rotate(360deg);}
-}
-
-.container{
-position:absolute;
-top:35%;
-width:100%;
-transform:translateY(-50%);
-padding:20px;
-}
-
-/* Romantic Buttons */
-button{
-padding:12px 25px;
-border:none;
-border-radius:30px;
-background:white;
-color:#c9184a;
-font-size:16px;
-cursor:pointer;
-margin:10px;
-box-shadow:0 0 15px rgba(255,255,255,0.6);
-transition:0.3s;
-}
-
-button:hover{
-background:#ff4d6d;
-color:white;
-transform:scale(1.05);
-}
-
-/* Shayari Cards */
-.shayari-container{
-display:flex;
-justify-content:center;
-gap:20px;
-flex-wrap:wrap;
-margin-top:20px;
-}
-
-.shayari{
-background:rgba(0,0,0,0.6);
-padding:20px;
-border-radius:20px;
-width:250px;
-backdrop-filter:blur(10px);
-box-shadow:0 0 20px rgba(255,105,180,0.6);
-}
-
-/* Teddy */
-.teddy{
-font-size:90px;
-cursor:pointer;
-animation:hug 1.5s infinite;
-}
-
-@keyframes hug{
-0%,100%{transform:scale(1);}
-50%{transform:scale(1.15);}
-}
-
-/* Big Heart */
-.bigHeart{
-font-size:100px;
-cursor:pointer;
-animation:pulse 1.2s infinite;
-}
-
-@keyframes pulse{
-0%{transform:scale(1);}
-50%{transform:scale(1.3);}
-100%{transform:scale(1);}
-}
-
-/* Gift */
-.giftBox{
-font-size:80px;
-cursor:pointer;
-animation:shake 1s infinite;
-}
-
-@keyframes shake{
-0%,100%{transform:rotate(0deg);}
-25%{transform:rotate(5deg);}
-75%{transform:rotate(-5deg);}
-}
-
-/* Popup */
-.popup{
-position:fixed;
-top:50%;
-left:50%;
-transform:translate(-50%,-50%);
-background:#1a001f;
-color:#ffb3d9;
-padding:25px;
-border-radius:20px;
-display:none;
-z-index:10;
-width:85%;
-max-width:320px;
-box-shadow:0 0 25px rgba(255,105,180,0.8);
-}
 </style>
 </head>
 
 <body>
 
-<audio autoplay loop>
-<source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mp3">
-</audio>
+<canvas id="confetti"></canvas>
 
-<div class="container" id="main"></div>
+<div class="container" id="page1">
 
-<div class="popup" id="popup">
-<h3>Just For You Mahi 💌</h3>
-<p>
-Mahi… tum sirf khoobsurat nahi ho ❤️<br>
-Tumhara dil sabse zyada pyara hai 💕<br>
-Tumhari simplicity hi tumhari sabse romantic tareef hai ✨<br><br>
-Stay the sweetest part of my life 🌹
-</p>
-<button onclick="closePopup()">Close 💖</button>
+<h1>Someone Special's Birthday 🎉</h1>
+
+<p>I made a small surprise website for a very special friend ❤️</p>
+
+<button onclick="startSurprise()">Open Surprise</button>
+
 </div>
+
+<div class="container hidden" id="page2">
+
+<div id="cake">🎂</div>
+
+<h1>Happy Birthday</h1>
+
+<h1>Surbhi Madam Ji ❤️</h1>
+
+<p id="typing"></p>
+
+<div class="gallery">
+
+<img src="https://images.unsplash.com/photo-1517841905240-472988babdf9">
+<img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e">
+<img src="https://images.unsplash.com/photo-1502685104226-ee32379fefbe">
+<img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330">
+
+</div>
+
+</div>
+
+<audio id="music" loop>
+<source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mp3">
+</audio>
 
 <script>
 
-/* Floating hearts */
-setInterval(()=>{
-let h=document.createElement("div");
-h.className="heartFloat";
-h.innerHTML="💖";
-h.style.left=Math.random()*100+"vw";
-document.body.appendChild(h);
-setTimeout(()=>h.remove(),6000);
-},500);
+function startSurprise(){
 
-/* Rose petals */
-setInterval(()=>{
-let p=document.createElement("div");
-p.className="petal";
-p.innerHTML="🌹";
-p.style.left=Math.random()*100+"vw";
-document.body.appendChild(p);
-setTimeout(()=>p.remove(),8000);
-},800);
+document.getElementById("page1").classList.add("hidden");
+document.getElementById("page2").classList.remove("hidden");
 
-/* Start */
-function showStart(){
-document.getElementById("main").innerHTML=
-"<h2>Are You Ready For This Romantic Surprise? 💖</h2>"+
-"<button onclick='startGift()'>YES ❤️</button>"+
-"<button id='noBtn'>NO 😜</button>";
+document.getElementById("music").play();
 
-let noBtn=document.getElementById("noBtn");
-noBtn.onmouseover=function(){
-noBtn.style.position="absolute";
-noBtn.style.left=Math.random()*80+'%';
-noBtn.style.top=Math.random()*80+'%';
+typeMessage();
+
+startConfetti();
+
+}
+
+const message = "Aap meri bahut achi dost ho. Aap hamesha happy raho. Aapki life success aur happiness se bhari rahe. Happy Birthday Surbhi Madam Ji ❤️🎂";
+
+let i = 0;
+
+function typeMessage(){
+
+if(i < message.length){
+
+document.getElementById("typing").innerHTML += message.charAt(i);
+
+i++;
+
+setTimeout(typeMessage,50);
+
+}
+
+}
+
+function startConfetti(){
+
+const canvas = document.getElementById("confetti");
+const ctx = canvas.getContext("2d");
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let confetti = [];
+
+for(let i=0;i<150;i++){
+
+confetti.push({
+x:Math.random()*canvas.width,
+y:Math.random()*canvas.height,
+r:Math.random()*6+2,
+d:Math.random()*150
+});
+
+}
+
+function draw(){
+
+ctx.clearRect(0,0,canvas.width,canvas.height);
+
+ctx.fillStyle="white";
+
+ctx.beginPath();
+
+for(let i=0;i<confetti.length;i++){
+
+let c = confetti[i];
+
+ctx.moveTo(c.x,c.y);
+
+ctx.arc(c.x,c.y,c.r,0,Math.PI*2,true);
+
+}
+
+ctx.fill();
+
+update();
+
+}
+
+function update(){
+
+for(let i=0;i<confetti.length;i++){
+
+let c = confetti[i];
+
+c.y += Math.cos(c.d)+1;
+
+c.x += Math.sin(c.d);
+
+if(c.y > canvas.height){
+
+confetti[i] = {
+x:Math.random()*canvas.width,
+y:0,
+r:c.r,
+d:c.d
 };
+
 }
 
-/* Main Flow */
-function startGift(){
-document.getElementById("main").innerHTML=
-"<h2>Toh shuruwat karte hain aapke behaviour se 💕</h2>"+
-"<p>Mahi, tumhara nature bohot caring aur pure hai ✨</p>"+
-"<button onclick='showShayari()'>Next 💌</button>";
 }
 
-function showShayari(){
-document.getElementById("main").innerHTML=
-"<h2>✨ 3 Shayari For Mahi ✨</h2>"+
-"<div class='shayari-container'>"+
-"<div class='shayari'>Teri hasi sabse pyari lagti hai,<br>Dil ko seedha chhoo jaati hai ❤️</div>"+
-"<div class='shayari'>Rang bhi sharma jaaye,<br>Jab tu saamne aaye 🌸</div>"+
-"<div class='shayari'>Tu sirf khoobsurat nahi,<br>Tu dil se bhi lajawab hai 💕</div>"+
-"</div>"+
-"<button onclick='showTeddy()'>Next 🧸</button>";
 }
 
-function showTeddy(){
-document.getElementById("main").innerHTML=
-"<h2>Yeh teddy tumhe ek virtual hug dena chahta hai 🤗</h2>"+
-"<div class='teddy' onclick='showHeart()'>🧸💖</div>"+
-"<p>Click the Teddy 🧸</p>";
-}
+setInterval(draw,20);
 
-function showHeart(){
-document.getElementById("main").innerHTML=
-"<h2>Yeh dil sirf tumhare liye dhadakta hai ❤️</h2>"+
-"<div class='bigHeart' onclick='showGift()'>❤️</div>";
 }
-
-function showGift(){
-document.getElementById("main").innerHTML=
-"<h2>Ek chota sa chocolate gift tumhare liye 🍫</h2>"+
-"<div class='giftBox' onclick='openChocolate()'>🎁</div>"+
-"<p>Open the Gift 🎁</p>";
-}
-
-function openChocolate(){
-document.getElementById("main").innerHTML=
-"<h1>🍫💖🍫</h1>"+
-"<h2>For You Mahi ❤️</h2>"+
-"<button onclick='openPopup()'>Read Secret Message 💌</button>";
-}
-
-function openPopup(){
-document.getElementById("popup").style.display="block";
-}
-
-function closePopup(){
-document.getElementById("popup").style.display="none";
-}
-
-showStart();
 
 </script>
 
