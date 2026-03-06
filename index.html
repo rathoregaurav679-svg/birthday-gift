@@ -1,82 +1,265 @@
 <!DOCTYPE html>
 <html>
 <head>
-
 <title>Surbhi Madam Ji Birthday</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
 
 <style>
 
 body{
 margin:0;
-padding:0;
 font-family:'Poppins',sans-serif;
 background:linear-gradient(135deg,#ff758c,#ff7eb3);
-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
-flex-direction:column;
 text-align:center;
 color:white;
+overflow-x:hidden;
 }
 
 h1{
 font-family:'Great Vibes',cursive;
 font-size:60px;
+margin-top:50px;
 }
 
 button{
-padding:15px 35px;
-font-size:18px;
+padding:14px 30px;
 border:none;
 border-radius:30px;
 background:#ff2d55;
 color:white;
+font-size:18px;
 cursor:pointer;
+margin-top:20px;
+}
+
+.section{
+display:none;
+padding:40px;
 }
 
 .cake{
 font-size:120px;
 cursor:pointer;
-margin-top:20px;
 }
 
-.teddy{
-font-size:100px;
+.gallery{
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:20px;
+margin-top:30px;
+}
+
+.gallery img{
+width:200px;
+height:200px;
+object-fit:cover;
+border-radius:20px;
+transition:0.4s;
+}
+
+.gallery img:hover{
+transform:scale(1.1);
+}
+
+.envelope{
+font-size:120px;
+cursor:pointer;
+}
+
+#letter{
 display:none;
+background:white;
+color:#ff2d55;
+padding:25px;
+border-radius:20px;
+max-width:400px;
+margin:auto;
+}
+
+.heart{
+position:fixed;
+bottom:-10px;
+font-size:25px;
+animation:fly 5s linear infinite;
+}
+
+@keyframes fly{
+0%{transform:translateY(0);opacity:1;}
+100%{transform:translateY(-100vh);opacity:0;}
+}
+
+.confetti{
+position:fixed;
+width:10px;
+height:10px;
+background:red;
+top:-10px;
+animation:fall 4s linear infinite;
+}
+
+@keyframes fall{
+0%{transform:translateY(0);}
+100%{transform:translateY(100vh);}
 }
 
 </style>
-
 </head>
 
 <body>
 
 <h1>Happy Birthday Surbhi Madam Ji ❤️</h1>
 
-<p>Today is a very special day for you</p>
+<button onclick="start()">Start Surprise</button>
 
-<button onclick="showCake()">Start Surprise</button>
+<!-- Music -->
+<audio id="music">
+<source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mp3">
+</audio>
 
-<div id="cake" class="cake" onclick="cutCake()" style="display:none">
-🎂
+<!-- Cake Section -->
+<div id="cakeSection" class="section">
+
+<h2>Cut Your Birthday Cake 🎂</h2>
+
+<div class="cake" onclick="cutCake()">🎂</div>
+
 </div>
 
-<div id="teddy" class="teddy">
-🧸
+<!-- Gallery -->
+<div id="gallerySection" class="section">
+
+<h2>Our Cute Memories 📸</h2>
+
+<div class="gallery">
+
+<img src="https://picsum.photos/300?1">
+<img src="https://picsum.photos/300?2">
+<img src="https://picsum.photos/300?3">
+<img src="https://picsum.photos/300?4">
+
+</div>
+
+<button onclick="openLetter()">Next Surprise</button>
+
+</div>
+
+<!-- Love Letter -->
+<div id="letterSection" class="section">
+
+<h2>Special Message For You 💌</h2>
+
+<div class="envelope" onclick="showLetter()">✉️</div>
+
+<div id="letter">
+
+<p id="typing"></p>
+
+</div>
+
 </div>
 
 <script>
 
-function showCake(){
-document.getElementById("cake").style.display="block"
+function start(){
+document.querySelector("button").style.display="none"
+document.getElementById("cakeSection").style.display="block"
 }
 
 function cutCake(){
-alert("Cake Cut Successfully 🎂")
-document.getElementById("teddy").style.display="block"
+
+document.getElementById("music").play()
+
+document.getElementById("cakeSection").style.display="none"
+
+document.getElementById("gallerySection").style.display="block"
+
+createHearts()
+createConfetti()
+
+}
+
+function openLetter(){
+
+document.getElementById("gallerySection").style.display="none"
+
+document.getElementById("letterSection").style.display="block"
+
+}
+
+function showLetter(){
+
+document.getElementById("letter").style.display="block"
+
+typeMessage()
+
+}
+
+function typeMessage(){
+
+let text="Surbhi Madam Ji, you are one of the most beautiful, kind and amazing persons. Your smile makes the world brighter. May your life always be filled with happiness, love and success. Happy Birthday ❤️"
+
+let i=0
+
+let speed=40
+
+function typing(){
+
+if(i<text.length){
+
+document.getElementById("typing").innerHTML+=text.charAt(i)
+
+i++
+
+setTimeout(typing,speed)
+
+}
+
+}
+
+typing()
+
+}
+
+function createHearts(){
+
+for(let i=0;i<100;i++){
+
+let heart=document.createElement("div")
+
+heart.innerHTML="❤️"
+
+heart.className="heart"
+
+heart.style.left=Math.random()*100+"%"
+
+heart.style.animationDuration=(3+Math.random()*3)+"s"
+
+document.body.appendChild(heart)
+
+}
+
+}
+
+function createConfetti(){
+
+for(let i=0;i<100;i++){
+
+let conf=document.createElement("div")
+
+conf.className="confetti"
+
+conf.style.left=Math.random()*100+"%"
+
+conf.style.background="hsl("+Math.random()*360+"deg,100%,50%)"
+
+conf.style.animationDuration=(2+Math.random()*3)+"s"
+
+document.body.appendChild(conf)
+
+}
+
 }
 
 </script>
