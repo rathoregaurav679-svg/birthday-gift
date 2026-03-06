@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Birthday Surprise</title>
+
+<title>Surbhi Madam Ji Birthday</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
 
@@ -10,242 +12,71 @@ body{
 margin:0;
 padding:0;
 font-family:'Poppins',sans-serif;
-background:linear-gradient(135deg,#ff9a9e,#fad0c4);
+background:linear-gradient(135deg,#ff758c,#ff7eb3);
 height:100vh;
-overflow-x:hidden;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
 text-align:center;
-color:#fff;
+color:white;
 }
 
-h1,h2{
+h1{
 font-family:'Great Vibes',cursive;
-font-size:45px;
-letter-spacing:2px;
-}
-
-.page{
-position:absolute;
-width:100%;
-top:0;
-left:0;
-padding-top:120px;
-opacity:0;
-transform:translateY(40px);
-transition:all 0.8s ease;
-}
-
-.page.active{
-opacity:1;
-transform:translateY(0);
+font-size:60px;
 }
 
 button{
-padding:14px 35px;
+padding:15px 35px;
 font-size:18px;
 border:none;
 border-radius:30px;
-background:linear-gradient(45deg,#ff416c,#ff4b2b);
+background:#ff2d55;
 color:white;
 cursor:pointer;
-box-shadow:0 10px 25px rgba(0,0,0,0.3);
-transition:0.3s;
-}
-
-button:hover{
-transform:scale(1.1);
 }
 
 .cake{
-font-size:130px;
+font-size:120px;
 cursor:pointer;
-transition:0.5s;
+margin-top:20px;
 }
 
 .teddy{
-font-size:110px;
-display:none;
-animation:pop 0.6s ease;
-}
-
-.chocolate{
 font-size:100px;
 display:none;
-animation:pop 0.6s ease;
 }
 
-@keyframes pop{
-0%{transform:scale(0)}
-100%{transform:scale(1)}
-}
+</style>
 
-.heart{
-position:fixed;
-bottom:-10px;
-font-size:25px;
-animation:hearts 6s linear infinite;
-}
+</head>
 
-@keyframes hearts{
-0%{
-transform:translateY(0) scale(1);
-opacity:1;
-}
-100%{
-transform:translateY(-100vh) scale(1.5);
-opacity:0;
-}
-}
-
-.popup{
-display:none;
-position:fixed;
-top:50%;
-left:50%;
-transform:translate(-50%,-50%);
-background:rgba(255,255,255,0.9);
-color:#ff2d55;
-padding:30px;
-border-radius:20px;
-width:320px;
-box-shadow:0 20px 40px rgba(0,0,0,0.3);
-}
-
-<audio id="music">
-<source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3">
-</audio>
-
-<!-- PAGE 1 -->
-<div class="page" id="page1">
-
-<h2 id="typeText"></h2>
-
-<button onclick="nextPage(2)">Next</button>
-
-</div>
-
-<!-- PAGE 2 -->
-<div class="page" id="page2">
-
-<h2>Loading Your Birthday Surprise 🎁</h2>
-
-<button onclick="nextPage(3)">Start Surprise</button>
-
-</div>
-
-<!-- PAGE 3 Memories -->
-<div class="page" id="page3">
-
-<h1>Our Cute Memories ❤️</h1>
-
-<img src="https://images.unsplash.com/photo-1511988617509-a57c8a288659" width="200">
-
-<br>
-
-<button onclick="nextPage(4)">Next</button>
-
-</div>
-
-<!-- PAGE 4 Cake -->
-<div class="page" id="page4">
+<body>
 
 <h1>Happy Birthday Surbhi Madam Ji ❤️</h1>
 
-<div class="cake" onclick="cutCake()">🎂</div>
+<p>Today is a very special day for you</p>
 
-<div class="teddy" id="teddy" onclick="showChocolate()">🧸</div>
+<button onclick="showCake()">Start Surprise</button>
 
-<div class="chocolate" id="choco" onclick="showHearts()">🍫</div>
-
+<div id="cake" class="cake" onclick="cutCake()" style="display:none">
+🎂
 </div>
 
-<!-- SECRET MESSAGE -->
-<div class="popup" id="lovePopup">
-
-<h2>Secret Message 💌</h2>
-
-<p>
-You are the most beautiful person in my life ❤️  
-Your smile makes my world brighter.  
-I am lucky to have you.  
-Happy Birthday my special one.  
-</p>
-
+<div id="teddy" class="teddy">
+🧸
 </div>
-
-<br>
-
-<button onclick="playMusic()">Play Romantic Music 🎵</button>
 
 <script>
 
-let text="Today is special day for you. Do you really think I forgot your birthday? I was pretending so I could surprise you. So be ready for your surprise ❤️";
-
-let i=0;
-
-function typeWriter(){
-
-if(i<text.length){
-
-document.getElementById("typeText").innerHTML+=text.charAt(i);
-
-i++;
-
-setTimeout(typeWriter,40);
-
-}
-
-}
-
-typeWriter();
-
-function nextPage(num){
-
-document.querySelectorAll(".page").forEach(p=>p.style.display="none");
-
-document.getElementById("page"+num).style.display="block";
-
+function showCake(){
+document.getElementById("cake").style.display="block"
 }
 
 function cutCake(){
-
-document.querySelector(".cake").innerHTML="🍰";
-
-document.getElementById("teddy").style.display="block";
-
-}
-
-function showChocolate(){
-
-document.getElementById("choco").style.display="block";
-
-}
-
-function showHearts(){
-
-for(let i=0;i<100;i++){
-
-let heart=document.createElement("div");
-
-heart.innerHTML="❤️";
-
-heart.className="heart";
-
-heart.style.left=Math.random()*100+"%";
-
-heart.style.animationDuration=(Math.random()*3+2)+"s";
-
-document.body.appendChild(heart);
-
-}
-
-document.getElementById("lovePopup").style.display="block";
-
-}
-
-function playMusic(){
-
-document.getElementById("music").play();
-
+alert("Cake Cut Successfully 🎂")
+document.getElementById("teddy").style.display="block"
 }
 
 </script>
