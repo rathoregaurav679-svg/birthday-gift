@@ -3,7 +3,7 @@
 <html>
 <head>
 
-<title>Survhi Madam Ji Birthday Surprise</title>
+<title>Surbhi Madam Ji Birthday</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
 
@@ -45,6 +45,16 @@ font-size:120px;
 cursor:pointer;
 }
 
+.teddy{
+font-size:100px;
+cursor:pointer;
+}
+
+.gift{
+font-size:100px;
+cursor:pointer;
+}
+
 .gallery{
 display:flex;
 justify-content:center;
@@ -63,21 +73,6 @@ transition:0.4s;
 
 .gallery img:hover{
 transform:scale(1.1);
-}
-
-.envelope{
-font-size:120px;
-cursor:pointer;
-}
-
-#letter{
-display:none;
-background:white;
-color:#ff2d55;
-padding:25px;
-border-radius:20px;
-max-width:400px;
-margin:auto;
 }
 
 .heart{
@@ -105,6 +100,18 @@ animation:fall 4s linear infinite;
 100%{transform:translateY(100vh);}
 }
 
+.rose{
+position:fixed;
+top:-20px;
+font-size:25px;
+animation:rosefall 6s linear infinite;
+}
+
+@keyframes rosefall{
+0%{transform:translateY(0);}
+100%{transform:translateY(100vh);}
+}
+
 .choco{
 position:absolute;
 font-size:40px;
@@ -115,6 +122,16 @@ animation:fallChoco 4s linear;
 @keyframes fallChoco{
 0%{top:-50px}
 100%{top:300px}
+}
+
+#letter{
+display:none;
+background:white;
+color:#ff2d55;
+padding:25px;
+border-radius:20px;
+max-width:400px;
+margin:auto;
 }
 
 </style>
@@ -130,8 +147,6 @@ animation:fallChoco 4s linear;
 <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mp3">
 </audio>
 
-<!-- Cake Section -->
-
 <div id="cakeSection" class="section">
 
 <h2>Cut Your Birthday Cake 🎂</h2>
@@ -140,15 +155,13 @@ animation:fallChoco 4s linear;
 
 </div>
 
-<!-- Gallery Section -->
-
 <div id="gallerySection" class="section">
 
 <h2>Our Cute Memories 📸</h2>
 
 <div class="gallery">
 
-<img src="https://picsum.photos/300?1">
+<img src=blob:https://web.whatsapp.com/192e734d-6a6a-480e-b35d-12ba91666b85>
 <img src="https://picsum.photos/300?2">
 <img src="https://picsum.photos/300?3">
 <img src="https://picsum.photos/300?4">
@@ -159,13 +172,9 @@ animation:fallChoco 4s linear;
 
 </div>
 
-<!-- Game Section -->
-
 <div id="gameSection" class="section">
 
 <h2>🍫 Collect Chocolates Game</h2>
-
-<p>Click chocolates and collect them!</p>
 
 <h3>Your Chocolates: <span id="score">0</span></h3>
 
@@ -181,23 +190,60 @@ overflow:hidden;
 border-radius:20px;
 "></div>
 
-<br>
-
-<button onclick="openLetter()">Next Surprise</button>
+<button onclick="showTeddy()">Next</button>
 
 </div>
 
-<!-- Love Letter -->
+<div id="teddySection" class="section">
+
+<h2>This Teddy is For You 🧸</h2>
+
+<div class="teddy" onclick="showGift()">🧸</div>
+
+</div>
+
+<div id="giftSection" class="section">
+
+<h2>Click Your Surprise Gift 🎁</h2>
+
+<div class="gift" onclick="openLetter()">🎁</div>
+
+</div>
 
 <div id="letterSection" class="section">
 
 <h2>Special Message For You 💌</h2>
 
-<div class="envelope" onclick="showLetter()">✉️</div>
+<div onclick="showLetter()" style="font-size:120px;cursor:pointer;">✉️</div>
 
 <div id="letter">
 <p id="typing"></p>
 </div>
+
+<button onclick="openShayari()">Next</button>
+
+</div>
+
+<div id="shayariSection" class="section">
+
+<h2>For The Birthday Girl ❤️</h2>
+
+<p style="font-size:22px">
+Tumhari muskaan sabse pyari hai,<br>
+Tumhari har baat nirali hai,<br>
+Is special din par bas yahi dua hai,<br>
+Tumhari life hamesha khushiyon se bhari ho.
+</p>
+
+<button onclick="finalScreen()">Final Surprise</button>
+
+</div>
+
+<div id="finalSection" class="section">
+
+<h1>👑 Happy Birthday Surbhi Madam Ji 👑</h1>
+
+<h2>You Are The Most Special Girl ❤️</h2>
 
 </div>
 
@@ -206,8 +252,9 @@ border-radius:20px;
 function start(){
 
 document.querySelector("button").style.display="none"
-
 document.getElementById("cakeSection").style.display="block"
+
+createRoses()
 
 }
 
@@ -216,7 +263,6 @@ function cutCake(){
 document.getElementById("music").play()
 
 document.getElementById("cakeSection").style.display="none"
-
 document.getElementById("gallerySection").style.display="block"
 
 createHearts()
@@ -227,15 +273,27 @@ createConfetti()
 function openGame(){
 
 document.getElementById("gallerySection").style.display="none"
-
 document.getElementById("gameSection").style.display="block"
+
+}
+
+function showTeddy(){
+
+document.getElementById("gameSection").style.display="none"
+document.getElementById("teddySection").style.display="block"
+
+}
+
+function showGift(){
+
+document.getElementById("teddySection").style.display="none"
+document.getElementById("giftSection").style.display="block"
 
 }
 
 function openLetter(){
 
-document.getElementById("gameSection").style.display="none"
-
+document.getElementById("giftSection").style.display="none"
 document.getElementById("letterSection").style.display="block"
 
 }
@@ -243,14 +301,27 @@ document.getElementById("letterSection").style.display="block"
 function showLetter(){
 
 document.getElementById("letter").style.display="block"
-
 typeMessage()
+
+}
+
+function openShayari(){
+
+document.getElementById("letterSection").style.display="none"
+document.getElementById("shayariSection").style.display="block"
+
+}
+
+function finalScreen(){
+
+document.getElementById("shayariSection").style.display="none"
+document.getElementById("finalSection").style.display="block"
 
 }
 
 function typeMessage(){
 
-let text="Surbhi Madam Ji, sach bolu to aap bahut special ho. Aapki smile itni cute hai ki kisi ka bhi din achha ho jaye. Aap jitni beautiful ho utni hi kind hearted bhi ho. Aapse baat karna hamesha achha lagta hai. Aapki simplicity aur nature hi aapko sabse alag banata hai. Bas aaj ke din main yahi bolna chahta hu ki aap hamesha khush raho, smile karti raho aur life me bahut success pao. Happy Birthday Surbhi Madam Ji ❤️"
+let text="Surbhi Madam Ji, sach bolu to aap bahut special ho. Aapki smile itni cute hai ki kisi ka bhi din achha ho jaye. Aap jitni beautiful ho utni hi kind hearted bhi ho. Happy Birthday ❤️"
 
 let i=0
 
@@ -259,9 +330,7 @@ function typing(){
 if(i<text.length){
 
 document.getElementById("typing").innerHTML+=text.charAt(i)
-
 i++
-
 setTimeout(typing,40)
 
 }
@@ -274,17 +343,14 @@ typing()
 
 function createHearts(){
 
-for(let i=0;i<80;i++){
+for(let i=0;i<60;i++){
 
 let heart=document.createElement("div")
 
 heart.innerHTML="❤️"
-
 heart.className="heart"
 
 heart.style.left=Math.random()*100+"%"
-
-heart.style.animationDuration=(3+Math.random()*3)+"s"
 
 document.body.appendChild(heart)
 
@@ -294,7 +360,7 @@ document.body.appendChild(heart)
 
 function createConfetti(){
 
-for(let i=0;i<80;i++){
+for(let i=0;i<60;i++){
 
 let conf=document.createElement("div")
 
@@ -304,9 +370,24 @@ conf.style.left=Math.random()*100+"%"
 
 conf.style.background="hsl("+Math.random()*360+"deg,100%,50%)"
 
-conf.style.animationDuration=(2+Math.random()*3)+"s"
-
 document.body.appendChild(conf)
+
+}
+
+}
+
+function createRoses(){
+
+for(let i=0;i<40;i++){
+
+let rose=document.createElement("div")
+
+rose.innerHTML="🌹"
+rose.className="rose"
+
+rose.style.left=Math.random()*100+"%"
+
+document.body.appendChild(rose)
 
 }
 
@@ -319,6 +400,7 @@ function startGame(){
 
 score=0
 document.getElementById("score").innerText=score
+
 gameRunning=true
 spawnChocolate()
 
