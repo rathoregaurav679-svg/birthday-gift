@@ -239,36 +239,171 @@ Aaj ka din special hai kyunki **tum iss duniya me aayi thi.**
 
 <div class="letter" id="letter">
 
-Tum meri life ka sabse beautiful part ho ❤️  
-Happy Birthday to the most amazing girl.
+<!-- Romantic Shayari Section -->
+<section class="romantic-shayari">
+
+<h2 class="shayari-title">💖 Birthday Shayari For You 💖</h2>
+
+<div class="shayari-grid">
+
+<div class="shayari-card">
+<p>
+Teri muskurahat meri pehchaan hai,<br>
+Teri khushi hi meri jaan hai,<br>
+Kuch bhi nahi meri zindagi mein,<br>
+Bas itna samajh lo tu hi meri duniya aur meri shaan hai.<br>
+<b>Happy Birthday ❤️</b>
+</p>
+</div>
+
+<div class="shayari-card">
+<p>
+Tumhari ek smile meri duniya badal deti hai,<br>
+Tumhari ek baat mera din bana deti hai,<br>
+Aaj tumhara birthday hai,<br>
+Isliye dua hai meri ki tumhari har khushi hamesha saath rahe. 🎂
+</p>
+</div>
+
+<div class="shayari-card">
+<p>
+Chand se bhi zyada noor hai tum mein,<br>
+Dil se zyada jagah hai tum mein,<br>
+Aaj ka din bahut khaas hai,<br>
+Kyunki duniya ki sabse pyari girl ka birthday hai. ❤️
+</p>
+</div>
+
+<div class="shayari-card">
+<p>
+Tum mile toh laga zindagi mil gayi,<br>
+Tumhari hasi mein meri khushi mil gayi,<br>
+Aaj ke din bas ek dua hai meri,<br>
+Tumhe har khushi mile jo tumhe kabhi na mili. 🎉
+</p>
+</div>
+
+<div class="shayari-card">
+<p>
+Tum meri life ka sabse beautiful part ho,<br>
+Tumhari smile meri favourite start ho,<br>
+Aaj tumhara birthday hai,<br>
+Isliye dil se kehna chahta hoon…<br>
+<b>Happy Birthday meri favourite person ❤️</b>
+</p>
+</div>
+
+</div>
+
+</section>
+
+<style>
+
+.romantic-shayari{
+padding:80px 20px;
+background:linear-gradient(135deg,#ff758c,#ff7eb3);
+text-align:center;
+position:relative;
+overflow:hidden;
+}
+
+.shayari-title{
+font-size:40px;
+color:white;
+margin-bottom:50px;
+font-family:'Great Vibes',cursive;
+animation:fadeIn 2s ease;
+}
+
+.shayari-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:25px;
+max-width:1100px;
+margin:auto;
+}
+
+.shayari-card{
+background:rgba(255,255,255,0.25);
+backdrop-filter:blur(10px);
+padding:30px;
+border-radius:20px;
+color:white;
+font-size:18px;
+line-height:1.7;
+transition:0.5s;
+box-shadow:0 10px 25px rgba(0,0,0,0.2);
+animation:fadeUp 1.5s ease;
+}
+
+.shayari-card:hover{
+transform:translateY(-10px) scale(1.03);
+background:rgba(255,255,255,0.35);
+}
+
+@keyframes fadeUp{
+from{
+opacity:0;
+transform:translateY(40px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+@keyframes fadeIn{
+from{opacity:0;}
+to{opacity:1;}
+}
+
+/* Floating hearts */
+
+.heart-bg{
+position:absolute;
+bottom:-20px;
+font-size:22px;
+animation:heartFloat 6s linear infinite;
+opacity:0.8;
+}
+
+@keyframes heartFloat{
+0%{
+transform:translateY(0);
+opacity:1;
+}
+100%{
+transform:translateY(-100vh);
+opacity:0;
+}
+}
+
+</style>
+
+<script>
+
+/* Floating hearts animation */
+
+setInterval(()=>{
+let heart=document.createElement("div");
+heart.className="heart-bg";
+heart.innerHTML="💖";
+heart.style.left=Math.random()*100+"%";
+heart.style.fontSize=(Math.random()*20+15)+"px";
+
+document.querySelector(".romantic-shayari").appendChild(heart);
+
+setTimeout(()=>{
+heart.remove();
+},6000);
+
+},400);
+
+</script>
 
 </div>
 
 <button onclick="nextPage(6)">Next</button>
-
-</div>
-
-<!-- PAGE 6 SHAYARI -->
-
-<div class="page" id="page6">
-
-<h2>📝 Shayari For You</h2>
-
-<div class="shayari">
-
-<p>1. Teri smile meri jaan ban gayi.</p>
-
-<p>2. Tere bina life adhuri si lagti hai.</p>
-
-<p>3. Tu mile toh lagta hai duniya mil gayi.</p>
-
-<p>4. Teri aankhon me ek alag hi magic hai.</p>
-
-<p>5. Happy Birthday meri favourite person ❤️</p>
-
-</div>
-
-<button onclick="nextPage(7)">Next</button>
 
 </div>
 
