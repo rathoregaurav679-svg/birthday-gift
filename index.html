@@ -1,7 +1,9 @@
+```html
 <!DOCTYPE html>
 <html>
 <head>
-<title>Surbhi Madam Ji Birthday</title>
+
+<title>Survhi Madam Ji Birthday Surprise</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
 
@@ -19,7 +21,7 @@ overflow-x:hidden;
 h1{
 font-family:'Great Vibes',cursive;
 font-size:60px;
-margin-top:50px;
+margin-top:40px;
 }
 
 button{
@@ -94,7 +96,6 @@ animation:fly 5s linear infinite;
 position:fixed;
 width:10px;
 height:10px;
-background:red;
 top:-10px;
 animation:fall 4s linear infinite;
 }
@@ -102,6 +103,18 @@ animation:fall 4s linear infinite;
 @keyframes fall{
 0%{transform:translateY(0);}
 100%{transform:translateY(100vh);}
+}
+
+.choco{
+position:absolute;
+font-size:40px;
+cursor:pointer;
+animation:fallChoco 4s linear;
+}
+
+@keyframes fallChoco{
+0%{top:-50px}
+100%{top:300px}
 }
 
 </style>
@@ -113,12 +126,12 @@ animation:fall 4s linear infinite;
 
 <button onclick="start()">Start Surprise</button>
 
-<!-- Music -->
 <audio id="music">
 <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mp3">
 </audio>
 
 <!-- Cake Section -->
+
 <div id="cakeSection" class="section">
 
 <h2>Cut Your Birthday Cake 🎂</h2>
@@ -127,7 +140,8 @@ animation:fall 4s linear infinite;
 
 </div>
 
-<!-- Gallery -->
+<!-- Gallery Section -->
+
 <div id="gallerySection" class="section">
 
 <h2>Our Cute Memories 📸</h2>
@@ -141,11 +155,40 @@ animation:fall 4s linear infinite;
 
 </div>
 
+<button onclick="openGame()">Next Surprise</button>
+
+</div>
+
+<!-- Game Section -->
+
+<div id="gameSection" class="section">
+
+<h2>🍫 Collect Chocolates Game</h2>
+
+<p>Click chocolates and collect them!</p>
+
+<h3>Your Chocolates: <span id="score">0</span></h3>
+
+<button onclick="startGame()">Start Game</button>
+
+<div id="gameArea" style="
+width:100%;
+height:300px;
+background:#fff3f7;
+margin-top:20px;
+position:relative;
+overflow:hidden;
+border-radius:20px;
+"></div>
+
+<br>
+
 <button onclick="openLetter()">Next Surprise</button>
 
 </div>
 
 <!-- Love Letter -->
+
 <div id="letterSection" class="section">
 
 <h2>Special Message For You 💌</h2>
@@ -153,9 +196,7 @@ animation:fall 4s linear infinite;
 <div class="envelope" onclick="showLetter()">✉️</div>
 
 <div id="letter">
-
 <p id="typing"></p>
-
 </div>
 
 </div>
@@ -163,8 +204,11 @@ animation:fall 4s linear infinite;
 <script>
 
 function start(){
+
 document.querySelector("button").style.display="none"
+
 document.getElementById("cakeSection").style.display="block"
+
 }
 
 function cutCake(){
@@ -180,9 +224,17 @@ createConfetti()
 
 }
 
-function openLetter(){
+function openGame(){
 
 document.getElementById("gallerySection").style.display="none"
+
+document.getElementById("gameSection").style.display="block"
+
+}
+
+function openLetter(){
+
+document.getElementById("gameSection").style.display="none"
 
 document.getElementById("letterSection").style.display="block"
 
@@ -198,11 +250,9 @@ typeMessage()
 
 function typeMessage(){
 
-let text="Surbhi Madam Ji, you are one of the most beautiful, kind and amazing persons. Your smile makes the world brighter. May your life always be filled with happiness, love and success. Happy Birthday ❤️"
+let text="Surbhi Madam Ji, you are one of the most beautiful and kind people. Your smile makes every moment special. May your life always be full of happiness and love. Happy Birthday ❤️"
 
 let i=0
-
-let speed=40
 
 function typing(){
 
@@ -212,7 +262,7 @@ document.getElementById("typing").innerHTML+=text.charAt(i)
 
 i++
 
-setTimeout(typing,speed)
+setTimeout(typing,40)
 
 }
 
@@ -224,7 +274,7 @@ typing()
 
 function createHearts(){
 
-for(let i=0;i<100;i++){
+for(let i=0;i<80;i++){
 
 let heart=document.createElement("div")
 
@@ -244,7 +294,7 @@ document.body.appendChild(heart)
 
 function createConfetti(){
 
-for(let i=0;i<100;i++){
+for(let i=0;i<80;i++){
 
 let conf=document.createElement("div")
 
@@ -262,7 +312,49 @@ document.body.appendChild(conf)
 
 }
 
+let score=0
+let gameRunning=false
+
+function startGame(){
+
+score=0
+document.getElementById("score").innerText=score
+gameRunning=true
+spawnChocolate()
+
+setTimeout(()=>{
+gameRunning=false
+alert("You collected "+score+" chocolates 🍫")
+},15000)
+
+}
+
+function spawnChocolate(){
+
+if(!gameRunning) return
+
+let choco=document.createElement("div")
+choco.innerHTML="🍫"
+choco.className="choco"
+
+choco.style.left=Math.random()*90+"%"
+
+choco.onclick=function(){
+score++
+document.getElementById("score").innerText=score
+choco.remove()
+}
+
+document.getElementById("gameArea").appendChild(choco)
+
+setTimeout(()=>{choco.remove()},4000)
+
+setTimeout(spawnChocolate,800)
+
+}
+
 </script>
 
 </body>
 </html>
+```
