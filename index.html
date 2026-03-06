@@ -182,7 +182,11 @@ max-width:600px;
 
 </div>
 
-<!-- Gallery -->
+<!-- Gallery Section FIXED -->
+
+<div id="gallerySection" class="section">
+
+<h2>Beautiful Memories ❤️</h2>
 
 <div class="gallery">
 
@@ -283,21 +287,10 @@ max-width:600px;
 
 <h2>Birthday Shayari 💖</h2>
 
-<div class="shayari">
-Har pal tu khush rahe, har din tera khaas ho.
-</div>
-
-<div class="shayari">
-Teri muskaan hi meri duniya ka ehsaas ho.
-</div>
-
-<div class="shayari">
-Rab kare tera har din khushiyon se bhara ho.
-</div>
-
-<div class="shayari">
-Aaj ka din special hai kyuki aaj tumhara birthday hai.
-</div>
+<div class="shayari">Har pal tu khush rahe, har din tera khaas ho.</div>
+<div class="shayari">Teri muskaan hi meri duniya ka ehsaas ho.</div>
+<div class="shayari">Rab kare tera har din khushiyon se bhara ho.</div>
+<div class="shayari">Aaj ka din special hai kyuki aaj tumhara birthday hai.</div>
 
 </div>
 
@@ -309,43 +302,31 @@ document.getElementById("cakeSection").style.display="block"
 }
 
 function cutCake(){
-
 document.getElementById("music").play()
-
 document.getElementById("cakeSection").style.display="none"
 document.getElementById("gallerySection").style.display="block"
-
 createHearts()
 createConfetti()
-
 }
 
 function openGame(){
-
 document.getElementById("gallerySection").style.display="none"
 document.getElementById("gameSection").style.display="block"
-
 }
 
 function showTeddy(){
-
 document.getElementById("gameSection").style.display="none"
 document.getElementById("teddySection").style.display="block"
-
 }
 
 function showGift(){
-
 document.getElementById("teddySection").style.display="none"
 document.getElementById("giftSection").style.display="block"
-
 }
 
 function openLetter(){
-
 document.getElementById("giftSection").style.display="none"
 document.getElementById("letterSection").style.display="block"
-
 }
 
 function showLetter(){
