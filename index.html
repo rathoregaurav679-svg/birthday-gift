@@ -3,146 +3,122 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Birthday Survhi 🎂</title>
+<title>Happy Birthday ❤️</title>
 
 <style>
-
 body{
 margin:0;
-padding:0;
-font-family:Arial, sans-serif;
+font-family: 'Segoe UI', sans-serif;
+background: linear-gradient(135deg,#ff9a9e,#fad0c4);
+height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
 text-align:center;
 color:white;
-
-/* Better Animated Background */
-background: linear-gradient(-45deg,#ff6a88,#ff99ac,#ff758c,#ff7eb3);
-background-size:400% 400%;
-animation:gradientBG 10s ease infinite;
-}
-
-@keyframes gradientBG{
-0%{background-position:0% 50%}
-50%{background-position:100% 50%}
-100%{background-position:0% 50%}
+overflow:hidden;
 }
 
 .container{
-padding:40px;
+max-width:700px;
+padding:30px;
 }
 
 h1{
-font-size:50px;
-margin-top:20px;
-text-shadow:0 0 20px white;
-animation: glow 2s infinite alternate;
+font-size:55px;
+margin-bottom:10px;
 }
 
-@keyframes glow{
-from{ text-shadow:0 0 10px #fff;}
-to{ text-shadow:0 0 30px #fff,0 0 50px pink;}
-}
-
-.message{
-max-width:600px;
-margin:auto;
+p{
 font-size:20px;
 line-height:1.6;
-background:rgba(0,0,0,0.35);
-padding:25px;
-border-radius:15px;
-backdrop-filter: blur(5px);
 }
-
-/* Gallery */
-
-.gallery{
-margin-top:40px;
-display:flex;
-justify-content:center;
-gap:20px;
-flex-wrap:wrap;
-}
-
-.gallery img{
-width:250px;
-height:250px;
-object-fit:cover;
-border-radius:20px;
-transition:0.4s;
-box-shadow:0 10px 25px rgba(0,0,0,0.4);
-}
-
-.gallery img:hover{
-transform:scale(1.1) rotate(3deg);
-}
-
-/* Button */
 
 button{
-margin-top:40px;
-padding:15px 30px;
+margin-top:25px;
+padding:12px 25px;
 font-size:18px;
 border:none;
 border-radius:30px;
 background:white;
-color:#ff4081;
+color:#ff4b6e;
 cursor:pointer;
-font-weight:bold;
 transition:0.3s;
 }
 
 button:hover{
-background:#ff4081;
-color:white;
 transform:scale(1.1);
 }
 
-/* Balloons */
-
-.balloon{
-position:fixed;
-bottom:-120px;
-width:70px;
-animation:float 10s linear infinite;
+#surprise{
+display:none;
+margin-top:20px;
+font-size:22px;
+color:#fff;
 }
 
-.balloon:nth-child(1){left:10%;animation-duration:8s}
-.balloon:nth-child(2){left:30%;animation-duration:10s}
-.balloon:nth-child(3){left:50%;animation-duration:7s}
-.balloon:nth-child(4){left:70%;animation-duration:9s}
-.balloon:nth-child(5){left:90%;animation-duration:11s}
+.heart{
+position:absolute;
+color:#ff2e63;
+font-size:20px;
+animation: float 6s linear infinite;
+}
 
 @keyframes float{
-0%{transform:translateY(0)}
-100%{transform:translateY(-120vh)}
+0%{
+transform:translateY(100vh);
+opacity:1;
 }
-
+100%{
+transform:translateY(-10vh);
+opacity:0;
+}
+}
 </style>
 </head>
 
 <body>
 
+<div class="container">
+
+<h1>Happy Birthday ❤️</h1>
+
+<p>
+To the most special girl in my life ✨  
+Tumhari smile meri duniya ko bright bana deti hai.  
+Aaj ka din sirf tumhare liye hai.  
+May your life be filled with love, happiness and endless smiles. 💕
+</p>
+
+<button onclick="showMessage()">Click for Surprise 🎁</button>
+
+<div id="surprise">
+You are truly amazing and I’m lucky to know you.  
+Once again Happy Birthday! 🎂💖
 </div>
 
-<button onclick="openGame()">Next Surprise</button>
-
 </div>
-
-<button onclick="celebrate()">Click for Surprise 🎉</button>
-
-</div>
-
-<img class="balloon" src="https://cdn-icons-png.flaticon.com/512/3468/3468374.png">
-<img class="balloon" src="https://cdn-icons-png.flaticon.com/512/3468/3468374.png">
-<img class="balloon" src="https://cdn-icons-png.flaticon.com/512/3468/3468374.png">
-<img class="balloon" src="https://cdn-icons-png.flaticon.com/512/3468/3468374.png">
-<img class="balloon" src="https://cdn-icons-png.flaticon.com/512/3468/3468374.png">
 
 <script>
 
-function celebrate(){
-alert("🎉 Happy Birthday Surbhi! 🎂\nHave an amazing day filled with happiness!");
+function showMessage(){
+document.getElementById("surprise").style.display="block";
 }
+
+function createHeart(){
+const heart=document.createElement("div");
+heart.classList.add("heart");
+heart.innerHTML="❤";
+heart.style.left=Math.random()*100+"vw";
+heart.style.fontSize=(Math.random()*20+10)+"px";
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+heart.remove();
+},6000);
+}
+
+setInterval(createHeart,300);
 
 </script>
 
